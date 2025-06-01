@@ -1,4 +1,3 @@
-# redirector.py
 from flask import Flask, redirect
 import json
 import os
@@ -6,7 +5,7 @@ import os
 app = Flask(__name__)
 URL_FILE = "redirect_url.json"
 
-# Initialize the redirect URL if file doesn't exist
+# Initialize the redirect URL if the file doesn't exist
 if not os.path.exists(URL_FILE):
     with open(URL_FILE, "w") as f:
         json.dump({"url": "https://preview--photo-flow-responsive-gallery.lovable.app/"}, f)
@@ -30,4 +29,5 @@ def update_url(new_url):
     return f"Redirect updated to {new_url}"
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Use Render's dynamic port
+    app.run(host="0.0.0.0", port=port)
