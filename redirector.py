@@ -8,7 +8,7 @@ URL_FILE = "redirect_url.json"
 # Initialize the redirect URL if the file doesn't exist
 if not os.path.exists(URL_FILE):
     with open(URL_FILE, "w") as f:
-        json.dump({"url": "https://preview--photo-flow-responsive-gallery.lovable.app/"}, f)
+        json.dump({"url": "https://scroll-spark-design-site.lovable.app/"}, f)
 
 def get_current_url():
     with open(URL_FILE, "r") as f:
